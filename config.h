@@ -45,3 +45,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define FLOW_TAP_TERM 150
 
+#define ENABLE_RGB_MATRIX_SOLID_COLOR
+#define RGB_MATRIX_DEFAULT_HUE 30
