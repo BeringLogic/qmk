@@ -103,12 +103,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [4] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,---------------------------------------------------------.
-       KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, XXXXXXX, XXXXXXX,  KC_PAGE_UP, XXXXXXX, KC_BSPC,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+------------+--------+--------|
-       KC_ESC, _______, _______, _______, _______, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,    KC_RIGHT, XXXXXXX,  KC_INS,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+------------+--------+--------|
-      KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_END, XXXXXXX, XXXXXXX,KC_PAGE_DOWN, XXXXXXX,  KC_DEL,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+------------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_HOME, XXXXXXX, XXXXXXX,  KC_PAGE_UP, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+------------+--------|
+      XXXXXXX, _______, _______, _______, _______, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT,     XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+------------+--------|
+      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,KC_PAGE_DOWN, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+------------+--------|
                                           _______, XXXXXXX,  KC_SPC,     KC_ENT, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
