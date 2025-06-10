@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include "users/holykeebs/holykeebs.h"
 #include "keymap_canadian_french.h"
+#include "sendstring_canadian_french.h"
 
 #define QK_C_EEPROM QK_CLEAR_EEPROM
 
@@ -50,6 +51,29 @@ td_state_t cur_dance(tap_dance_state_t *state);
 
 void f_finished(tap_dance_state_t *state, void *user_data);
 void f_reset(tap_dance_state_t *state, void *user_data);
+
+// Macros
+enum custom_keycodes {
+    M_MAKE = SAFE_RANGE,
+    M_FLASH,
+};
+
+// https://docs.qmk.fm/feature_macros
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case M_MAKE:
+        if (record->event.pressed) {
+            SEND_STRING("qmk compile -j 20" SS_TAP(X_ENTER));
+        }
+        break;
+    case M_FLASH:
+        if (record->event.pressed) {
+           SEND_STRING("qmk flash && qmk flash" SS_TAP(X_ENTER));
+        }
+        break;
+    }
+    return true;
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
@@ -103,9 +127,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [4] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,---------------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_HOME, XXXXXXX, XXXXXXX,  KC_PAGE_UP, XXXXXXX,
+       M_MAKE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_HOME, XXXXXXX, XXXXXXX,  KC_PAGE_UP, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+------------+--------|
-      XXXXXXX, _______, _______, _______, _______, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT,     XXXXXXX, XXXXXXX,
+      M_FLASH, _______, _______, _______, _______, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT,     XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+------------+--------|
       QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,  KC_END, XXXXXXX, XXXXXXX,KC_PAGE_DOWN, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+------------+--------|
@@ -137,7 +161,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /*                                                      //`----------------------------------' `----------------------------------' */
   /* ) */
 };
-
 
 // https://docs.qmk.fm/features/tap_dance
 td_state_t cur_dance(tap_dance_state_t *state) {
