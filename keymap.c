@@ -114,13 +114,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [3] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                   ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, KC_MUTE, KC_VOLD, KC_VOLU, XXXXXXX,                     KC_WAKE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
-  //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX,                     KC_SLEP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR,
-  //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, UG_TOGG, UG_VALD, UG_VALU, UG_NEXT,                      KC_PWR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  QK_RBT,
-  //|--------+--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------+--------|
+  //,-----------------------------------------------------.                   ,-------------------------------------------------------.
+      XXXXXXX, XXXXXXX, KC_MUTE, KC_VOLD, KC_VOLU, XXXXXXX,                     KC_WAKE, XXXXXXX, XXXXXXX, XXXXXXX,   KC_PSCR, QK_BOOT,
+  //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+----------+--------|
+      XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX,                     KC_SLEP, XXXXXXX, XXXXXXX, XXXXXXX,A(KC_PSCR),  EE_CLR,
+  //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+----------+--------|
+      XXXXXXX, XXXXXXX, UG_TOGG, UG_VALD, UG_VALU, UG_NEXT,                      KC_PWR, XXXXXXX, XXXXXXX, XXXXXXX,C(KC_PSCR),  QK_RBT,
+  //|--------+--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+----------+--------|
                                           XXXXXXX, _______,  KC_SPC,    KC_ENT, _______, XXXXXXX
                                       //`--------------------------' `--------------------------'
   ),
