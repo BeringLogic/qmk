@@ -7,3 +7,5 @@ OLED_FLIP=yes
 
 VIA_ENABLE      = yes    # Enable VIA
 TAP_DANCE_ENABLE = yes
+DYNAMIC_TAPPING_TERM_ENABLE = yes
+
